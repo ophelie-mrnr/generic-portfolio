@@ -1,0 +1,3 @@
+- Faire un MVC avec un controleur frontal
+- Le répertoire public contient les requêtes : pour masquer le code source
+- Utiliser un autoloader
