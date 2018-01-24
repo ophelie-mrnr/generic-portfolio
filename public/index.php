@@ -1,7 +1,7 @@
 <?php
-  include("../src/Framework/routing.php");
+  include("../Framework/routing.php");
   $fmk = new Routes();
-  include("../src/Framework/routes.php");
+  include("../Framework/routes.php");
   if (isset($_GET["page"]))
   {
     $route = htmlentities(trim($_GET["page"]));
