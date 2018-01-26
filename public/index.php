@@ -1,25 +1,33 @@
 <?php
-  include("../Framework/routing.php");
-  $fmk = new Routes();
-  include("../Framework/routes.php");
-  if (isset($_GET["page"]))
-  {
-    $route = htmlentities(trim($_GET["page"]));
-  }
-  else
-  {
-    $route = "";
-  }
-  $fmkRoute = $fmk->getControlleur($route);
-  if ($fmk->isError404())
-  {
-      header("HTTP/1.0 404 Not Found");
-  }
-  $controlleur = '../src/Controller/'.$fmkRoute[0];
-  include($controlleur);
-  $classe = preg_split('[\.|/]',$fmkRoute[0]);
-  $classe = $classe[0].ucfirst($classe[1]);
-  $methodVariable = array($classe, $fmkRoute[1]);
-  if(is_callable($methodVariable, false, $callable_name)){
-      call_user_func($methodVariable);
-  }
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+chdir(__DIR__.'/../src');
+  
+   include("../Framework/routing.php");
+   $newRoute = new Routes();
+   include("../Framework/routes.php");
+   
+  $route = htmlentities($_GET["page"]);
+  //var_dump($route);
+        
+   $mot = explode("/",$route); 
+   //var_dump($mot);
+
+   $myControlleur = $mot[0].'Controller';
+   //var_dump($myControlleur);
+   
+   $action = $mot[1];
+   //var_dump($action);
+   
+   include("/Controller/".$myControlleur.".php");
+   
+   $classe = $myControlleur.'/'.ucfirst($action);
+   //var_dump($classe);
+   
+   if(is_callable($action, false, $callable_name)){
+      call_user_func($action);
+   }
+  
+?>

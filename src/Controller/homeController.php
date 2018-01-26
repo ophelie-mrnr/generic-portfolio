@@ -1,5 +1,3 @@
-<html>
+<?php
 
-HELLO HOME !
-
-</html>
+include('View/Home/viewHome.php');

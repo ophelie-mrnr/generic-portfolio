@@ -1,22 +1,22 @@
 <!doctype html>
 <html>
 	<head>
-		<title>Page d'accueil</title>
+		<title>Page d'historique</title>
         <meta charset="utf-8" />
 		<link href="style.css" rel="stylesheet" /> 
 	</head>
 	<body>
 	
-	<?php include("../View/entete.php"); ?>
+	<?php include("entete.php"); ?>
     
-    <?php include("../View/menu.php"); ?>
+    <?php include("menu.php"); ?>
 	
 	
 		<div id="corps">
-			<p> Bienvenue sur viewHome.php </p>
+			<p> Bienvenue sur viewHistory.php </p>
 		</div> <!-- #corps -->
 		
-		<?php include("../View/piedDePage.php"); ?>
+		<?php include("piedDePage.php"); ?>
 		
 		
 
